@@ -6,13 +6,163 @@ public class Main {
 
 	public static void main(String[] args) {
 		//intSample();
-		// doubleSample();
+		//doubleSample();
 		//longSample();
 		// booleanSample();
 		// compareSample();
-		stringSample();
+		// stringSample();
 		// charSample();
+		// binHexSample();
+		arraySample();
 		// loopSample();
+	}
+
+	private static void arraySample() {
+		int[] ar1 = {1,2,3,4,5};
+		System.out.println(ar1[1]+","+ar1[4]);
+		ar1[2] = 200;
+		ar1[3] = 300;
+		for (int i=0;i<ar1.length;i++) {
+			System.out.print(ar1[i]+",");
+		}
+		System.out.println();
+		
+		double[] ar2 = new double[4];
+		for (int i=0;i<ar2.length;i++) {
+			System.out.print(ar2[i]+",");
+		}
+		System.out.println();
+		
+		ar2[3] = 5.44;
+		for (int i=0;i<ar2.length;i++) {
+			System.out.print(ar2[i]+",");
+		}
+		System.out.println();
+		
+		char[] ar3=new char[5];
+		for (int i=0;i<ar3.length;i++) {
+			System.out.print(ar3[i]+",");
+		}
+		System.out.println();
+		
+		ar3[3]='A';
+		for (int i=0;i<ar3.length;i++) {
+			System.out.print(ar3[i]+",");
+		}
+		System.out.println();
+		
+	}
+
+	private static void binHexSample() {
+		// TODO Auto-generated method stub
+		int i1 = 0b100100;
+		System.out.println(i1);
+		/* hex digits:
+		 * 0~9 same decimal;
+		 * A->10, ... F ->15
+		 * 
+		 */
+		i1 = 0x3d;
+		System.out.println(i1);
+		
+		i1 = 123;
+		int i2 = 400;
+		double d1 = 312.321442;
+		double d2 = 12.343;
+		System.out.printf("%10.2f%10.2f\n", d1,d2);
+		
+		System.out.printf("%10x %10x\n",i1,i2);
+	}
+
+	private static void doubleSample() {
+		// TODO Auto-generated method stub
+		double d1 = 3.324214;
+		double d2 = 33124.134124124;
+		
+		System.out.println(d1+d2);
+		System.out.println(d1-d2);
+		
+		System.out.println(d1*d2);
+		System.out.println(d2/d1);
+		
+		int i1 = 3;
+		int i2 = 13;
+		
+		d1 = i1;
+		System.out.println(i1);
+		System.out.println(d1);
+		
+		d1 = i2/i1;  // implied type cast
+		System.out.println(d1);
+		
+		i1 = (int)d2;  // type casting
+		System.out.println(i1);
+		
+		d1 = 5.3;
+		d2 = 2.3;
+		
+		System.out.println(d1 % d2);
+		System.out.println(d1-((int)(d1/d2))*d2);
+		
+		
+		// we should not use == to compare doubles. 
+		if (d1 % d2 == 0.7) {
+			System.out.println("Same");
+		} else {
+			System.out.println("Different");
+		}
+		// we need to use this:
+		double eps = 0.00000001;
+		if (Math.abs(d1 % d2 - 0.7) < eps) {
+			System.out.println("Same");
+		} else {
+			System.out.println("Different");
+		}
+				
+	}
+
+	private static void charSample() {
+		// TODO Auto-generated method stub
+		char c1 = 'A';
+		char c2 = 'B';
+		
+		String s="";
+		s+=c1; // s=s+c1;
+		System.out.println(s);
+		s+=c2; // s=s+c2;
+		System.out.println(s);
+		
+		c1 = s.charAt(1);
+		System.out.println(c1);
+		
+		System.out.println(12);
+		
+		// ASCII code: a character is represented by a byte,
+		// so that it is a value between 0~255, inclusively.
+		
+		c1 = 7;
+		c2 = 13;
+		
+		System.out.println(c1);
+		System.out.print("cursor before:");
+		System.out.print(c2);
+		System.out.println("cursor after:");
+		
+		//print ascii code of a char
+		c1 = 'a';
+		c2 = 'A';
+		System.out.println((int)c1+","+(int)c2+","+(c1-c2));
+		
+		//get the 20th capital letter
+		c1 = 'A'+20;
+		System.out.println(c1);
+		
+		//get the lower case letter 120 after letter 'c' but wrap up
+		// after 'z';
+		c1 = (('c'-'a')+120)%26 + 'a';
+		System.out.println(c1);
+		
+		
 	}
 
 	private static void longSample() {
