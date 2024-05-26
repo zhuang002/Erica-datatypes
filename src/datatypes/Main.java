@@ -1,5 +1,9 @@
 package datatypes;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class Main {
@@ -13,8 +17,153 @@ public class Main {
 		// stringSample();
 		// charSample();
 		// binHexSample();
-		arraySample();
+		//arraySample();
 		// loopSample();
+		// arrayListSample();
+		HashSetSample();
+		//HashMapSample();
+	}
+
+	private static void HashMapSample() {
+		// a Map is a group of entries which are key-value map.
+		HashMap<String, Integer> ages = new HashMap<>();
+		ages.put("Erica", 16);
+		ages.put("Mary", 15);
+		ages.put("David", 18);
+		ages.put("Derek", 20);
+		ages.put("Jane", 16);
+		ages.put("Jerry", 18);
+		ages.put("Tom", 15);
+		
+		// HashMap.keySet() is to get a set of keys which is a Set type.
+		// With an iterable data structure(type), you can use for(type var:data) {...}
+		for (String name:ages.keySet()) {
+			System.out.println(name+","+ages.get(name));
+		}
+		System.out.println("=========================");
+		for (Entry entry:ages.entrySet()) {
+			System.out.println(entry.getKey()+","+entry.getValue());
+		}
+		System.out.println("=========================");
+		
+		System.out.println(ages.get("David"));
+		System.out.println(ages.get("Erica"));
+		System.out.println(ages.get("John"));
+		System.out.println(ages.containsKey("John"));
+		System.out.println(ages.containsKey("Erica"));
+	}
+
+	private static void HashSetSample() {
+		/*
+		 * most usable methods: size(), add(), remove(), addAll(), 
+		 * removeAll(), retainAll()
+		 */
+		HashSet<Integer> set1 = new HashSet<>();
+		HashSet<Integer> set2 = new HashSet<>();
+		for (int i=0;i<100;i++) {
+			set1.add(i);
+		}
+		
+		for (int i=50;i<150;i++) {
+			set2.add(i);
+		}
+		
+		System.out.println("sizes for set1 and set2: "+set1.size()+","+set2.size());
+		System.out.println("contains 5:"+set1.contains(5)+","+set2.contains(5));
+		HashSet<Integer> set3 = new HashSet<>();
+		set3.addAll(set1);
+		set3.addAll(set2);
+		System.out.println(set3);
+		set3.clear();
+		set3.addAll(set1);
+		set3.removeAll(set2);
+		System.out.println(set3);
+		set3.clear();
+		set3.addAll(set1);
+		set3.retainAll(set2);
+		System.out.println(set3);
+		
+	
+		HashSet<String> set4 = new HashSet<>();
+		
+		set4.add("Erica");
+		set4.add("Zheng");
+		set4.add("Mary");
+		System.out.println(set4);
+		System.out.println("================");
+		for (String v:set4) {
+			System.out.print(v+" ");
+		}
+		System.out.println();
+		set4.remove("Zheng");
+		System.out.println(set4);
+		
+	}
+
+	private static void arrayListSample() {
+		/*
+		 * Most usable methods: add(object), remove(index), remove(object),
+		 * 	get(index), size(), contains;
+		 */
+		ArrayList<Integer> al1 = new ArrayList<>();
+		int[] ar1 = new int[4];
+		
+		System.out.println(ar1.length+","+al1.size());
+		System.out.println(ar1[2]);
+		
+		for (int i=0;i<ar1.length;i++) {
+			ar1[i] = i+1;
+		}
+		
+		for (int i=0;i<4;i++) {
+			al1.add(i+11);
+		}
+		System.out.println(ar1.length+","+al1.size());
+		System.out.println(ar1[2]+","+al1.get(0));
+		
+		for (int i=0;i<al1.size();i++) {
+			System.out.print(al1.get(i)+" ");
+		}
+		System.out.println();
+		System.out.println("========================");
+		for (int i:al1) {
+			System.out.print(i+" ");
+		}
+		System.out.println();
+		
+		al1.remove(2);
+		for (int i=0;i<al1.size();i++) {
+			System.out.print(al1.get(i)+" ");
+		}
+		System.out.println();
+		
+		ArrayList<String> al2 = new ArrayList<>();
+		al2.add("Erica");
+		al2.add("Zheng");
+		al2.add("David");
+		
+		System.out.println("Contains 'David':"+al2.contains("David"));
+		System.out.println("Contains 'Mary':"+al2.contains("Mary"));
+		
+		
+		for (int i=0;i<al2.size();i++) {
+			System.out.print(al2.get(i)+" ");
+		}
+		System.out.println();
+		
+		al2.remove(1);
+		
+		for (int i=0;i<al2.size();i++) {
+			System.out.print(al2.get(i)+" ");
+		}
+		System.out.println();
+		
+		al2.remove("David");
+		for (int i=0;i<al2.size();i++) {
+			System.out.print(al2.get(i)+" ");
+		}
+		System.out.println();
+		
 	}
 
 	private static void arraySample() {
@@ -26,6 +175,12 @@ public class Main {
 			System.out.print(ar1[i]+",");
 		}
 		System.out.println();
+		System.out.println("=======================");
+		for (int i:ar1) {
+			System.out.print(i+",");
+		}
+		System.out.println();
+		
 		
 		double[] ar2 = new double[4];
 		for (int i=0;i<ar2.length;i++) {
@@ -284,6 +439,27 @@ public class Main {
 		System.out.println("index of 'ja' is "+s1.indexOf("ja"));
 		System.out.println("last index of 'ja' is "+s1.lastIndexOf("ja"));
 		
+		s1 = "abc cde fff ddd";
+		String[] splited = s1.split(" ");
+		for (int i=0;i<splited.length;i++) {
+			System.out.print(splited[i]+",");
+		}
+		System.out.println();
+		
+		s1 = "ddd-fff-ggg";
+		splited = s1.split("-");
+		for (int i=0;i<splited.length;i++) {
+			System.out.print(splited[i]+",");
+		}
+		System.out.println();
+		
+		s1 = "aaa&&&bbb&&&ccc";
+		splited = s1.split("&&&");
+		for (int i=0;i<splited.length;i++) {
+			System.out.print(splited[i]+",");
+		}
+		System.out.println();
+		
 		
 	}
 
@@ -307,6 +483,12 @@ public class Main {
 		c = b%a;  // c = b mod a ; get remainder
 		System.out.println("b%a="+c);
 		
+		a = 1020;
+		System.out.printf("the number is %d, in hex it is 0x%x\n", a, a);
+		a = 0x3fc;
+		System.out.printf("the number is %d, in hex it is %x\n", a, a);
+		a = 0b101100110;
+		System.out.printf("the number is %d, in hex it is %x\n", a, a);
 	}
 
 }
