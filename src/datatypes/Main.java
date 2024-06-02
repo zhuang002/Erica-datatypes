@@ -1,6 +1,7 @@
 package datatypes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
@@ -20,8 +21,45 @@ public class Main {
 		//arraySample();
 		// loopSample();
 		// arrayListSample();
-		HashSetSample();
+		//HashSetSample();
 		//HashMapSample();
+		sortSample();
+	}
+
+	private static void sortSample() {
+		int[] ar = {2,8,7,13,10,9};
+		Arrays.sort(ar);
+		for (int i:ar) {
+			System.out.print(i+" ");
+		}
+		System.out.println();
+		
+		String[] sAr = {"Mary","Erica","Zheng","David","Derek","Jerry"};
+		Arrays.sort(sAr);
+		for (String s:sAr) {
+			System.out.print(s+" ");
+		}
+		System.out.println();
+		
+		ArrayList<Integer> iAl=new ArrayList<>();
+		iAl.add(11);
+		iAl.add(7);
+		iAl.add(9);
+		iAl.add(3);
+		iAl.add(5);
+		iAl.sort(null); // null for default ascending order
+		for (int i:iAl) {
+			System.out.print(i+" ");
+		}
+		System.out.println();
+		
+		ArrayList<String> sAl=new ArrayList<>(Arrays.asList(sAr));
+		sAl.sort(null);
+		for (String s:sAl) {
+			System.out.print(s+" ");
+		}
+		System.out.println();
+		
 	}
 
 	private static void HashMapSample() {
